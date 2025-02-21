@@ -1,3 +1,4 @@
+// @ts-ignore
 export const processSummary = async (
   content: string,
   onChunk: (chunk: string) => void
@@ -40,19 +41,19 @@ export const processCaptionLanguageChange = async (
   text: string,
   target: string
 ): Promise<string> => {
-  // @ts-expect-error
+  // @ts-ignore
   const canTranslate = await ai?.translator?.capabilities();
   let translator: any;
   if (canTranslate !== "no") {
     if (canTranslate === "readily") {
-      // @ts-expect-error
+      // @ts-ignore
       translator = await translation.createTranslator({
         sourceLanguage: "en",
         targetLanguage: target,
       });
     }
   }
-  // @ts-expect-error
+  // @ts-ignore
   translator = await translation.createTranslator({
     sourceLanguage: "en",
     targetLanguage: target,
@@ -108,3 +109,38 @@ export const generateEmailContent = async (
   writer.destroy();
   return result;
 };
+
+export const generateChatContent = async (
+  prompt: string,
+  onChunk: (chunk: string) => void
+): Promise<string> => {
+  // @ts-expect-error
+  const writer = await ai.languageModel.create({
+    systemPrompt:
+      "You are a helpful assistant that can answer questions and help with tasks, and you are also a software engineer with expertise in reactjs, typescript, and tailwindcss",
+  });
+  const stream = await writer.promptStreaming(prompt);
+  let result = "";
+  for await (const chunk of stream) {
+    result += chunk;
+    onChunk(result);
+  }
+  writer.destroy();
+  return result;
+};
+
+/**
+ * Marvel: Rise of the Forgotten
+
+Four childhood friends—Jake, Mia, Rohan, and Alex—lived ordinary lives in New York until one fateful night. During a meteor shower, they stumbled upon a crashed Kree pod hidden in Central Park. Inside, a glowing core pulsed with energy. The moment they touched it, their DNA was rewritten.
+
+Jake gained super strength and resilience, Mia controlled light and shadows, Rohan could manipulate time in short bursts, and Alex developed technopathic abilities. Calling themselves The Forgotten, they vowed to use their powers for good.
+
+Their first mission? Stopping a rogue AIM scientist, Dr. Vex, who was experimenting on kidnapped mutants. As they infiltrated his underground lab, they faced his cybernetic enforcers. Mia blinded the guards with a flash of pure light, Rohan slowed time, allowing Jake to smash through barriers, and Alex disabled the security with a mere thought.
+
+But Dr. Vex had a secret—he had harnessed stolen Stark tech. A colossal mech emerged, nearly crushing them. In a desperate move, they combined their powers, creating a surge of energy that short-circuited the machine.
+
+As the dust settled, SHIELD arrived. Nick Fury stepped forward. “Looks like we’ve got some new recruits.”
+
+The Forgotten had just begun their journey.
+ */

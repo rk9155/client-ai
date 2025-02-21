@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { generateEmailContent } from "../utils/aiHelpers";
+import { generateChatContent } from "../utils/aiHelpers";
 
 interface Message {
   role: "user" | "bot";
@@ -18,7 +18,7 @@ const ChatBot = () => {
       setInput("");
       setIsTyping(true);
       try {
-        await generateEmailContent(input, (chunk) => {
+        await generateChatContent(input, (chunk) => {
           setMessages((prev) => [...prev, { role: "bot", content: chunk }]);
           setIsTyping(false);
         });
