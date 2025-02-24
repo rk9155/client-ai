@@ -1,50 +1,80 @@
-# React + TypeScript + Vite
+# Client-Side AI Demo
+A comprehensive demonstration of various AI capabilities running directly in the browser, featuring translation, language detection, story summarization, email writing, and chatbot functionalities.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Project Images
+![image](https://github.com/user-attachments/assets/e3b8cb4d-71fe-4528-8176-230e1f6207a3)
+![image](https://github.com/user-attachments/assets/36d9cda3-782e-4d98-853d-810772545e28)
 
-Currently, two official plugins are available:
+## 🌟 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. Live Caption Translator
+- Real-time translation.
+- Support for multiple languages
+- Visual feedback with translator illustration
 
-## Expanding the ESLint configuration
+### 2. Language Detector
+- Automatic detection of input text language
+- Fast and accurate language identification
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 3. Story Summarizer
+- Condenses long text into concise summaries
+- Maintains key information while reducing length
+- Visual representation with summarizer illustration
 
-- Configure the top-level `parserOptions` property like this:
+### 4. Email Writer
+- AI-powered email composition
+- Professional email formatting
+- Visual guidance with email illustration
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 5. ChatBot
+- Interactive conversational AI
+- Visual interface with chat illustration
+
+## 🚀 Getting Started
+### Prerequisites
+- Node.js (v14.0.0 or higher)
+- npm (v6.0.0 or higher)
+
+### Installation
+1. Clone the repository
+```bash
+git clone https://github.com/your-username/client-side-ai-demo.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+2. Install dependencies
+```bash
+yarn install
 ```
+
+3. Start the development server
+```bash
+yarn run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+## 🛠️ Built With
+
+- [React](https://reactjs.org/) - Frontend framework
+- [Vite](https://vitejs.dev/) - Build tool and development server
+- [ESLint](https://eslint.org/) - Code linting
+- [SWC](https://swc.rs/) - Fast Refresh support
+- [Built In Chrome AI API](https://developer.chrome.com/docs/ai/built-in) - AI API
+- [Chrome flags](chrome://flags/#translation-api) - Chrome flags
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## 👏 Acknowledgments
+
+- Made with ❤️ by [Rakesh Kumar](https://github.com/rk9155)
+- Built using React + TypeScript + Vite template
